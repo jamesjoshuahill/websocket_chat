@@ -1,7 +1,7 @@
 %h1 WebSockets Chat
 %p.user-message
   - if current_user
-    = "You are #{current_user.email}"
+    = "You are #{current_user.name}"
     = link_to "Sign out", destroy_user_session_path
   - else
     Who are you?
