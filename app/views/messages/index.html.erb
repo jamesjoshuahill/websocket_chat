@@ -1,4 +1,4 @@
-<h1>Listing messages</h1>
+<h1>Chat room</h1>
 
 <table>
   <thead>
@@ -16,9 +16,7 @@
       <tr>
         <td><%= message.name %></td>
         <td><%= message.content %></td>
-        <td><%= link_to 'Show', message %></td>
-        <td><%= link_to 'Edit', edit_message_path(message) %></td>
-        <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Eviscerate', message, method: :delete, data: { confirm: 'You are sure.' } %></td>
       </tr>
     <% end %>
   </tbody>

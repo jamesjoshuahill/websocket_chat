@@ -1,15 +1,9 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :edit, :update, :destroy]
+  before_action :set_message, only: [:destroy]
 
   # GET /messages
-  # GET /messages.json
   def index
     @messages = Message.all
-  end
-
-  # GET /messages/1
-  # GET /messages/1.json
-  def show
   end
 
   # GET /messages/new
@@ -17,12 +11,7 @@ class MessagesController < ApplicationController
     @message = Message.new
   end
 
-  # GET /messages/1/edit
-  def edit
-  end
-
   # POST /messages
-  # POST /messages.json
   def create
     @message = Message.new(message_params)
 
@@ -30,26 +19,10 @@ class MessagesController < ApplicationController
       if @message.save
         format.html do
           WebsocketRails[:chat].trigger 'new', @message
-          redirect_to @message, notice: 'Message was successfully created.'
+          redirect_to root_path, notice: 'Message was successfully created.'
         end
-        format.json { render action: 'show', status: :created, location: @message }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /messages/1
-  # PATCH/PUT /messages/1.json
-  def update
-    respond_to do |format|
-      if @message.update(message_params)
-        format.html { redirect_to @message, notice: 'Message was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
     end
   end

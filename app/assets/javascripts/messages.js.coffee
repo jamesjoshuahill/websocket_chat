@@ -6,4 +6,9 @@ dispatcher = new WebSocketRails 'localhost:3000/websocket'
 
 channel = dispatcher.subscribe 'chat'
 channel.bind 'new', (message) ->
-  $('#messages').append $("<tr><td>" + message.name + "</td><td>" + message.content + "</td><td></td><td></td><td></td></tr>")
+  new_message_html = "<tr>"
+  new_message_html += "<td>" + message.name + "</td>"
+  new_message_html += "<td>" + message.content + "</td>"
+  new_message_html += "<td><a data-confirm='You are sure.' data-method='delete' href='/messages/" + message.id + "' rel='nofollow'>Eviscerate</a></td>"
+  new_message_html += "</tr>"
+  $('#messages').append $(new_message_html)

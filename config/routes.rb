@@ -1,5 +1,7 @@
 RealtimeChat::Application.routes.draw do
-  resources :messages
+  root 'messages#index'
+
+  resources :messages, only: [:index, :new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
