@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:destroy]
+  before_filter :authenticate_user!, only: [:create, :destroy]
 
   # GET /messages
   def index

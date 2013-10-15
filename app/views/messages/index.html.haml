@@ -1,17 +1,25 @@
-#container 
-  %h1 WebSockets Chat
-  .new_message
-    %h3 New message
-    = render 'form'
-  %table{class: ".messages_container"}
-    %thead
+%h1 WebSockets Chat
+%p.user-message
+  - if current_user
+    = "You are #{current_user.email}"
+    = link_to "Sign out", destroy_user_session_path
+  - else
+    Who are you?
+    = link_to "Sign in", new_user_session_path
+    = link_to "Sign up", new_user_registration_path
+
+.new_message
+  %h3 New message
+  = render 'form'
+%table{class: ".messages_container"}
+  %thead
+    %tr
+      %th Name
+      %th Content
+      %th
+  %tbody#messages
+    - @messages.each do |message|
       %tr
-        %th Name
-        %th Content
-        %th
-    %tbody#messages
-      - @messages.each do |message|
-        %tr
-          %td= message.name
-          %td= message.content
-          %td= link_to 'Eviscerate', message, method: :delete, data: { confirm: 'You are sure.' }
+        %td= message.name
+        %td= message.content
+        %td= link_to 'Eviscerate', message, method: :delete, data: { confirm: 'You are sure.' }

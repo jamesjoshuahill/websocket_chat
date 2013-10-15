@@ -15,6 +15,10 @@ channel.bind 'new', (message) ->
 
 hideNotice = () ->
   $('.notice').delay(2500).slideUp(500)
+hideAlert = () ->
+  $('.alert').delay(2500).slideUp(500)
 
 $ ->
   hideNotice()
+  hideAlert()
+
