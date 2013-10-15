@@ -28,7 +28,7 @@ class MessagesController < ApplicationController
   def destroy
     @message.destroy
     respond_to do |format|
-      format.html { redirect_to messages_url }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end
