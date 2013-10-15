@@ -12,3 +12,9 @@ channel.bind 'new', (message) ->
   new_message_html += "<td><a data-confirm='You are sure.' data-method='delete' href='/messages/" + message.id + "' rel='nofollow'>Eviscerate</a></td>"
   new_message_html += "</tr>"
   $('#messages').append $(new_message_html)
+
+hideNotice = () ->
+  $('.notice').delay(2500).slideUp(500)
+
+$ ->
+  hideNotice()

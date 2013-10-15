@@ -4,10 +4,6 @@ class MessagesController < ApplicationController
   # GET /messages
   def index
     @messages = Message.all
-  end
-
-  # GET /messages/new
-  def new
     @message = Message.new
   end
 
@@ -19,7 +15,7 @@ class MessagesController < ApplicationController
       if @message.save
         format.html do
           WebsocketRails[:chat].trigger 'new', @message
-          redirect_to root_path, notice: 'Message was successfully created.'
+          redirect_to root_path, notice: 'Message was posted.'
         end
       else
         render action: 'new'
