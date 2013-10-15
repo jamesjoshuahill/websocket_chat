@@ -1,6 +1,9 @@
 // Place all the styles related to the Messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+*, html, body, input, button {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
 #container, .notice {
   width: 750px;
   margin: 0 auto;
@@ -12,4 +15,28 @@
 .messages_container {
   width: 600px;
   float: left;
+}
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+th {
+  background-color: black;
+  color: white;
+  text-align: left;
+}
+tbody tr:nth-child(odd) {
+  background-color: #ccc;
+}
+th, td {
+  padding: 0.5em;
+}
+.column.name {
+  width: 125px;
+}
+.column.content {
+  width: 405px;
+}
+.column.eviscerate {
+  width: 70px;
 }
