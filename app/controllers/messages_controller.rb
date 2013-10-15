@@ -24,13 +24,9 @@ class MessagesController < ApplicationController
   end
 
   # DELETE /messages/1
-  # DELETE /messages/1.json
   def destroy
     @message.destroy
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.json { head :no_content }
-    end
+    redirect_to root_path
   end
 
   private
