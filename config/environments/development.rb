@@ -29,4 +29,7 @@ RealtimeChat::Application.configure do
 
   # Remove the Rack::Lock middleware for WebsocketsRails
   config.middleware.delete Rack::Lock
+
+  # Devise mailer config
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

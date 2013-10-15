@@ -36,6 +36,9 @@ gem 'websocket-rails'
 # Use thin as multi-threaded webserver
 gem 'thin'
 
+# Use Devise for user authentication and authorisation
+gem 'devise'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
