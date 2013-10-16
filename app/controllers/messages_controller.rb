@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     if @message.save
       WebsocketRails[:chat].trigger 'new', @message
-      redirect_to root_path, notice: 'Message was posted.'
+      redirect_to root_path, notice: 'Message posted.'
     else
       render action: 'new'
     end
