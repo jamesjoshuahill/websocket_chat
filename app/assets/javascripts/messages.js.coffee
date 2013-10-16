@@ -13,12 +13,9 @@ channel.bind 'new', (message) ->
   new_message_html += "</tr>"
   $('#messages').append $(new_message_html)
 
-hideNotice = () ->
+hideNoticeAndAlert = () ->
   $('.notice').delay(2500).slideUp(500)
-hideAlert = () ->
   $('.alert').delay(2500).slideUp(500)
 
 $ ->
-  hideNotice()
-  hideAlert()
-
+  hideNoticeAndAlert()
