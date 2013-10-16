@@ -4,16 +4,16 @@
 *, html, body, input, button {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
-#container, .notice {
+#container, .notice, .alert {
   width: 750px;
   margin: 0 auto;
 }
-.new_message {
+#new_message {
   width: 250px;
   float: left;
 }
-.messages_container {
-  width: 600px;
+#messages_container {
+  width: 500px;
   float: left;
 }
 table {

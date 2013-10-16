@@ -9,10 +9,10 @@
     = link_to "Sign up", new_user_registration_path
 
 - if current_user
-  .new_message
+  #new_message
     %h3 New message
     = render 'form'
-%table{class: ".messages_container"}
+%table#messages_container
   %thead
     %tr
       %th.column.name Name
