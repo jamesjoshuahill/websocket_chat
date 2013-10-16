@@ -13,9 +13,25 @@ channel.bind 'new', (message) ->
   new_message_html += "</tr>"
   $('#messages').append $(new_message_html)
 
+prepareNewMessageHandler = () ->
+  form = $('#new_message form')
+  form.submit (event) ->  
+    form_data = form.serialize()
+    $.post(form.attr('action'), form_data)
+    
+    notice
+    if($.session)
+      notice = $.session.get('notice')
+    
+    if(notice)
+      flash = $("<div></div>").addClass('notice').html(notice)
+      $(flash).appendTo('#flash').hide().slideDown(500).delay(2500).slideUp(500)
+    event.preventDefault()
+
 hideNoticeAndAlert = () ->
   $('.notice').delay(2500).slideUp(500)
   $('.alert').delay(2500).slideUp(500)
 
 $ ->
   hideNoticeAndAlert()
+  prepareNewMessageHandler()
