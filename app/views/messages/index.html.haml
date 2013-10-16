@@ -1,26 +1,16 @@
-%h1 WebSockets Chat
-%p.user-message
-  - if current_user
-    = "You are #{current_user.name}"
-    = link_to "Sign out", destroy_user_session_path
-  - else
-    Who are you?
-    = link_to "Sign in", new_user_session_path
-    = link_to "Sign up", new_user_registration_path
-
 - if current_user
-  #new_message
+  #new_message_form
     %h3 New message
     = render 'form'
-%table#messages_container
-  %thead
-    %tr
-      %th.column.name Name
-      %th.column.content Message
-      %th.column.eviscerate
-  %tbody#messages
-    - @messages.each do |message|
+  %table#messages_container
+    %thead
       %tr
-        %td= message.name
-        %td= message.content
-        %td= link_to 'Eviscerate', message, method: :delete, data: { confirm: 'You are sure.' }
+        %th.column.name Name
+        %th.column.content Message
+        %th.column.eviscerate
+    %tbody#messages
+      - @messages.each do |message|
+        %tr
+          %td= message.name
+          %td= message.content
+          %td= link_to 'Eviscerate', message, method: :delete, data: { confirm: 'You are sure.' }

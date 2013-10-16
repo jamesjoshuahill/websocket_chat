@@ -6,7 +6,19 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-    #container 
-      %p.notice= notice
-      %p.alert= alert
+    #header
+      .page-title
+        %h1 WebSockets Chat
+      .user-message
+        - if current_user
+          = "You are #{current_user.name}"
+          = link_to "Sign out", destroy_user_session_path
+        - else
+          Who are you?
+          = link_to "Sign in", new_user_session_path
+          = link_to "Sign up", new_user_registration_path
+      .flash
+        %p.notice= notice
+        %p.alert= alert
+    #container       
       = yield

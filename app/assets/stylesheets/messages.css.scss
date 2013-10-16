@@ -4,16 +4,39 @@
 *, html, body, input, button {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
-#container, .notice, .alert {
+body {
   width: 750px;
   margin: 0 auto;
 }
-#new_message {
+#header {
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 1em;
+}
+.page-title {
+  -webkit-flex: 1 100%;
+  flex: 1 100%;
+}
+.user-message {
+  width: 250px;
+}
+.flash {
+  flex: 1;
+  -webkit-flex: 1;
+  p {
+    margin: 0;
+  }
+}
+#container {
+  width: 100%;
+}
+#new_message_form {
   width: 250px;
   float: left;
 }
 #messages_container {
-  width: 500px;
   float: left;
 }
 table {
@@ -32,10 +55,10 @@ th, td {
   padding: 0.5em;
 }
 .column.name {
-  width: 125px;
+  width: 100px;
 }
 .column.content {
-  width: 405px;
+  width: 291px;
 }
 .column.eviscerate {
   width: 70px;

@@ -15,17 +15,17 @@ channel.bind 'new', (message) ->
   $('#messages tr:last').hide().fadeIn(1000)
 
 prepareNewMessageHandler = () ->
-  form = $('#new_message form')
+  form = $('#new_message_form form')
   form.submit (event) ->  
     form_data = form.serialize()
     $.post(form.attr('action'), form_data)
-    $('.notice').html('Message posted.').show().slideDown(500)
+    $('.notice').html('Message posted.').show()
     hideNoticeAndAlert()
     event.preventDefault()
 
 hideNoticeAndAlert = () ->
-  $('.notice').delay(2500).slideUp(500)
-  $('.alert').delay(2500).slideUp(500)
+  $('.notice').delay(2500).fadeOut(500)
+  $('.alert').delay(2500).fadeOut(500)
 
 $ ->
   hideNoticeAndAlert()

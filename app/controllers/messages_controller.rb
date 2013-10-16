@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
 
   # GET /messages
   def index
-    @messages = Message.all
+    @messages = Message.all.order("id asc")
     @message = Message.new
   end
 
